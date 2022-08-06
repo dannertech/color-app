@@ -18,13 +18,29 @@ const ColorBoxSlice = createSlice({
     name: 'color',
     reducers: {
         increaseRed: (state) => {
-            state.red += 1;
+            if(state.red === 255){
+                console.log("cannot increase red")
+                alert("Cannot increase red any more!");
+            } else {
+                state.red += 1;
+            }
+            
         },
         increaseGreen: (state) => {
-            state.green += 1;
+            if(state.green === 255){
+                alert("Cannot increase green any more!");
+            } else {
+                state.green += 1;
+            }
+            
         },
         increaseBlue: (state) => {
-            state.blue += 1;
+            if(state.blue === 255){
+                alert("Cannot increase blue any more!")
+            } else {
+                state.blue += 1;
+            }
+            
         }
     }
 })

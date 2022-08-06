@@ -14,9 +14,9 @@ const ColorBox = () => {
         <>
         <h1>This is the color box screen</h1>
         <div style={{height: 100, width: 100, backgroundColor: `rgb(${store.red}, ${store.green}, ${store.blue})`}}></div>
-        <button onClick={() => dispatch(increaseRed)}>Increase Red</button>
-        <button onClick={() => dispatch(increaseGreen)}>Increase Green</button>
-        <button onClick={() => dispatch(increaseBlue)}>Increase Blue</button>
+        <button onClick={() => dispatch(increaseRed())}>Increase Red</button>
+        <button onClick={() => dispatch(increaseGreen())}>Increase Green</button>
+        <button onClick={() => dispatch(increaseBlue())}>Increase Blue</button>
         </>
     )
 };
