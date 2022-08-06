@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {increaseBlue, increaseGreen, increaseRed} from '../features/ColorBoxSlice';
+import {increaseBlue, increaseGreen, increaseRed, decreaseRed, decreaseGreen, decreaseBlue} from '../features/ColorBoxSlice';
 import { RootState } from '../store';
 
 
@@ -22,9 +22,9 @@ const ColorBox = () => {
         </div>
         <div>
             <h1>Decrease</h1>
-            <button>Decrease Red</button>
-            <button>Decrease Green</button>
-            <button>Decrease Blue</button>
+            <button onClick={() => dispatch(decreaseRed())}>Decrease Red</button>
+            <button onClick={() => dispatch(decreaseGreen())}>Decrease Green</button>
+            <button onClick={() => dispatch(decreaseBlue())}>Decrease Blue</button>
         </div>
         </>
     )
