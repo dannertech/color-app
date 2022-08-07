@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-interface FavoriteColorUser {
+export interface FavoriteColorUser {
     name: string,
     color: string
     id: number
