@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 import { RootState } from '../store';
 import FavoriteColorCard from '../components/FavoriteColorCard';
 
 const FavoriteColor = () => {
     const state = useSelector((state: RootState) => state.favoritecolor)
+
+    const [nameInput, setNameInput] = useState('');
+    const [colorInput, setColorInput] = useState('');
     console.log(state);
     return (
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
