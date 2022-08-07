@@ -8,8 +8,10 @@ const FavoriteColorCard = ({name, id, color} : FavoriteColorUser) => {
     
     return(
         <div style={{height: 100, width: 200, backgroundColor: `${color}`}}>
-            <h1>{name}</h1>
-            <img src={require('../icons/icons8-delete-100.png')} alt="Delete"/>
+            <h1 style={{color: 'white'}}>{name}</h1>
+            <button onClick={() => dispatch(deleteUser(id))}>
+            <img src={require('../icons/icons8-delete-100.png')} alt="Delete" style={{height: 30, width: 30}}/>
+            </button>
         </div>
     )
 };

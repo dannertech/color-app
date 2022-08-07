@@ -23,10 +23,14 @@ const FavoriteColorSlice = createSlice({
     initialState,
     reducers: {
         addUser: (state, action: PayloadAction<FavoriteColorUser>) => {
+            console.log("here")
             state.data.push(action.payload)
+            
         },
         deleteUser: (state, action: PayloadAction<number>) => {
-            state.data.map((user) => user.id !== action.payload)
+        
+            const newArray = state.data.filter((x) => x.id !== action.payload)
+            state.data = newArray;
         }
     }
 
