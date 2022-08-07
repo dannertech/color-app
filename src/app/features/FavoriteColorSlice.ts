@@ -3,6 +3,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 interface FavoriteColorUser {
     name: string,
     color: string
+    id: number
 }
 
 
@@ -15,6 +16,8 @@ const initialState : FavoriteColorState = {
     data: []
 }
 
+
+
 const FavoriteColorSlice = createSlice({
     name: "favoritecolor",
     initialState,
@@ -22,9 +25,12 @@ const FavoriteColorSlice = createSlice({
         addUser: (state, action: PayloadAction<FavoriteColorUser>) => {
             state.data.push(action.payload)
         },
-        addItem: (state, action: PayloadAction<string>) => {
-            
+        deleteUser: (state, action: PayloadAction<number>) => {
+            state.data.map((user) => user.id !== action.payload)
         }
     }
 
-})
+});
+
+export const {deleteUser, addUser} = FavoriteColorSlice.actions;
+export const FavoriteColorReducer = FavoriteColorSlice.reducer;
