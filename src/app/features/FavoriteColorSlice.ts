@@ -19,7 +19,12 @@ const FavoriteColorSlice = createSlice({
     name: "favoritecolor",
     initialState,
     reducers: {
-        
+        addUser: (state, action: PayloadAction<FavoriteColorUser>) => {
+            state.data.push(action.payload)
+        },
+        addItem: (state, action: PayloadAction<string>) => {
+            
+        }
     }
 
 })
