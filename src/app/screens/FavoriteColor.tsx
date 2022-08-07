@@ -1,22 +1,27 @@
 import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import { RootState } from '../store';
+import {addUser} from '../features/FavoriteColorSlice';
 import FavoriteColorCard from '../components/FavoriteColorCard';
+import { FavoriteColorUser } from '../features/FavoriteColorSlice';
 
 const FavoriteColor = () => {
     const state = useSelector((state: RootState) => state.favoritecolor)
+    const dispatch = useDispatch();
 
     const [nameInput, setNameInput] = useState('');
     const [colorInput, setColorInput] = useState('');
-    console.log(state);
+
+
+    
     return (
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <h1>Favorite Color Screen</h1>
         <label>Name</label>
-        <input type="text" style={{width: '50%', border: 3, borderStyle: 'solid'}} title="Name"></input>
+        <input type="text" style={{width: '50%', border: 3, borderStyle: 'solid'}} title="Name" onChange={(e) => setNameInput(e.target.value)} value={nameInput}></input>
         <label style={{marginTop: 50}}>Favorite Color</label>
-        <input type="text" style={{width: '50%',border: 3, borderStyle: 'solid'}}></input>
-        <input type="submit" value="submit" style={{marginTop: 30}}></input>
+        <input type="text" style={{width: '50%',border: 3, borderStyle: 'solid'}} onChange={(e) => setColorInput(e.target.value)} value={colorInput}></input>
+        <input type="submit" value="submit" style={{marginTop: 30}} onSubmit={() => dispatch(addUser({name: nameInput, color: colorInput, id: }))}></input>
         <div>
             <h1>Favorite Colors!</h1>
             {state.data.map((item) => {
